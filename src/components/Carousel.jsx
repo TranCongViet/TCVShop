@@ -6,14 +6,20 @@ import Slider from 'react-slick';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import Category from './Category';
 import { Link } from 'react-router-dom';
-const Carousel = () => {
+
+const Carousel = ({ onLoad }) => {
     const { data, fetchAllProducts } = getData()
-    console.log("All data:", data);
-    console.log("Slider data (first 7 items):", data?.slice(0,7));
 
     useEffect(() => {
         fetchAllProducts()
     }, [])
+
+    useEffect(() => {
+        // Call onLoad when data is ready
+        if (data && data.length > 0 && onLoad) {
+            onLoad()
+        }
+    }, [data, onLoad])
 
     const SamplePrevArrow = (props) => {
         const {className, style, onClick} = props;
@@ -23,6 +29,7 @@ const Carousel = () => {
             </div>
         )
     }
+    
     const SampleNextArrow = (props) => {
         const {className, style, onClick} = props;
         return (
@@ -35,17 +42,29 @@ const Carousel = () => {
     var settings = {
         dots: false,
         autoplay: true,
-        autoplaySpeed:2000,
+        autoplaySpeed: 2000,
         infinite: true,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        pauseOnHover:false,
+        pauseOnHover: false,
         nextArrow: <SampleNextArrow to="next" />,
         prevArrow: <SamplePrevArrow to="prev" />,
+        responsive: [
+            {
+                breakpoint: 800, // md breakpoint (768px)
+                settings: {
+                    arrows: false, // Ẩn arrows trên màn hình nhỏ hơn 768px
+                }
+            },
+            {
+                breakpoint: 1024, // lg breakpoint
+                settings: {
+                    arrows: true,  // Hiển thị arrows trên màn hình lớn
+                }
+            }
+        ]
     };
-
-    console.log("Slider settings:", settings);
 
     return (
         <div>
@@ -63,7 +82,7 @@ const Carousel = () => {
                                     </Link>
                                 </div>
                                 <div>
-                                    <img src={item.image} alt={item.title} className='rounded-full w-[550px] hover:scale-105 transition-all shadow-2xl shadow-red-400'/>
+                                    <img src={item.image} alt={item.title} className='rounded-full w-[350px] md:w-[550px] hover:scale-105 transition-all shadow-2xl shadow-red-400'/>
                                 </div>
                             </div>
                         </div>
