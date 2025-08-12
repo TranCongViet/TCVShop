@@ -1,11 +1,10 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Loading from '../assets/Loading4.webm';
 import Breadcrums from '../components/Breadcrums';
 import { IoCartOutline } from 'react-icons/io5';
 import { useCart } from '../context/CartContext';
-
+import ProductDetailSkeleton from '../components/skeleton/ProductDetailSkeleton';
 const SingleProduct = () => {
   const params = useParams();
   const [SingleProduct, setSingleProduct] = useState('');
@@ -91,11 +90,7 @@ const SingleProduct = () => {
           </div>
         </div>
       ) : (
-        <div className="flex h-screen items-center justify-center">
-          <video muted autoPlay loop>
-            <source src={Loading} type="video/webm" />
-          </video>
-        </div>
+        <ProductDetailSkeleton />
       )}
     </>
   );
