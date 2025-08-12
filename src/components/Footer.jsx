@@ -1,29 +1,35 @@
-import { FaFacebook, FaInstagram, FaPinterest, FaTwitterSquare } from 'react-icons/fa'
+import {
+  FaFacebook,
+  FaInstagram,
+  FaPinterest,
+  FaTwitterSquare,
+} from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className='bg-gray-900 text-gray-200 py-10 md:flex justify-around items-center '>
-      
+    <footer className="items-center justify-around bg-gray-900 py-10 text-gray-200 md:flex">
       {/* bottom section */}
-      <div className='text-center text-sm'>
-        <p>&copy; {new Date().getFullYear()} <span className='text-red-500'>TCVShop</span>. All rights reserved</p>
+      <div className="text-center text-sm">
+        <p>
+          &copy; {new Date().getFullYear()}{' '}
+          <span className="text-red-500">TCVShop</span>. All rights reserved
+        </p>
       </div>
 
-      <div className='max-w-7xl mt-5 md:mt-0 text-center'>
+      <div className="mt-5 max-w-7xl text-center md:mt-0">
         {/* social media links */}
-        <div className='mb-6 md:mb-0'>
-            <h3 className='text-xl font-semibold text-center'>Follow me</h3>
-            <div className='flex space-x-4 mt-2 justify-center'>
-                <FaFacebook/>
-                <FaInstagram/>
-                <FaTwitterSquare/>
-                <FaPinterest/>
-            </div>
+        <div className="mb-6 md:mb-0">
+          <h3 className="text-center text-xl font-semibold">Follow me</h3>
+          <div className="mt-2 flex justify-center space-x-4">
+            <FaFacebook />
+            <FaInstagram />
+            <FaTwitterSquare />
+            <FaPinterest />
+          </div>
         </div>
       </div>
-    
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

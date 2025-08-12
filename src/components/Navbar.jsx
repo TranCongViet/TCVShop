@@ -5,13 +5,10 @@ import { Link, NavLink } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
 import { HiMenuAlt1, HiMenuAlt3 } from 'react-icons/hi'
 import ResponsiveMenu from './ResponsiveMenu'
-
 const Navbar = () => {
-
-    const {cartItem} = useCart()
-    const [openNav, setOpenNav] = useState(false)
-    
-    return (
+    const {cartItem} = useCart() 
+    const [openNav, setOpenNav] = useState(false) 
+    return ( 
         <div className='bg-white py-3 shadow-2xl px-4 md:px-0'>
             <div className='max-w-6xl mx-auto flex justify-between items-center'>
                 {/* logo section */}

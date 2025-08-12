@@ -4,9 +4,9 @@ import { useCart } from '../context/CartContext'
 const ProductListView = ({product}) => {
   const navigate = useNavigate()
   const {addToCart} = useCart()
-
   return (
     <div className='space-y-4 mt-2 rounded-md'>
+
       <div className='bg-gray-100 flex gap-7 items-center p-2 rounded-md'>
         <img src={product.image} alt={product.title} className='md:h-60 md:w-60 h-25 w-25 rounded-md cursor-pointer' onClick={()=>navigate(`/products/${product.id}`)}/>
         <div className='space-y-2'>

@@ -1,14 +1,10 @@
-import { useUser } from '@clerk/clerk-react'
-import { Navigate } from 'react-router-dom'
+import { useUser } from '@clerk/clerk-react';
+import { Navigate } from 'react-router-dom';
 
-const ProtectedRoute = ({children}) => {
-    const {user} = useUser()
-    
-  return (
-    <div>
-      {user ? children: <Navigate to='/'/>}
-    </div>
-  )
-}
+const ProtectedRoute = ({ children }) => {
+  const { user } = useUser();
 
-export default ProtectedRoute
+  return <div>{user ? children : <Navigate to="/" />}</div>;
+};
+
+export default ProtectedRoute;

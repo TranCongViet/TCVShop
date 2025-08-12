@@ -47,52 +47,82 @@ const Contact = () => {
       );
   };
   return (
-    <div className="min-h-screen bg-gradient-to-r from-[#0f0c29] via-[#302b63] to-[#24243e] flex items-center justify-center px-4 py-10">
-      <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl shadow-2xl p-10 w-full max-w-5xl">
-        <h2 className="text-4xl font-bold text-white text-center mb-10">Get in Touch with <span className="text-red-400">TCV</span></h2>
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-r from-[#0f0c29] via-[#302b63] to-[#24243e] px-4 py-10">
+      <div className="w-full max-w-5xl rounded-2xl border border-white/20 bg-white/10 p-10 shadow-2xl backdrop-blur-md">
+        <h2 className="mb-10 text-center text-4xl font-bold text-white">
+          Get in Touch with <span className="text-red-400">TCV</span>
+        </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {/* Info Section */}
-          <div className="text-white space-y-6">
+          <div className="space-y-6 text-white">
             <div>
               <h3 className="text-2xl font-semibold">Contact Info</h3>
-              <p className="text-gray-300">Have a question or need support? We're here to help you with your electronics journey.</p>
+              <p className="text-gray-300">
+                Have a question or need support? We're here to help you with
+                your electronics journey.
+              </p>
             </div>
             <div>
-              <p><strong>📍 Address:</strong> Ho Chi Minh city, VietNam</p>
-              <p><strong>📧 Email:</strong> trancongviet990ntt@gmail.com</p>
-              <p><strong>📞 Phone:</strong> 0387572309</p>
+              <p>
+                <strong>📍 Address:</strong> Ho Chi Minh city, VietNam
+              </p>
+              <p>
+                <strong>📧 Email:</strong> trancongviet990ntt@gmail.com
+              </p>
+              <p>
+                <strong>📞 Phone:</strong> 0387572309
+              </p>
             </div>
           </div>
 
           {/* Form Section */}
           <form type="submit" className="space-y-6" onSubmit={handleSubmit}>
             <div>
-              <label className="block text-white mb-1">Your Name</label>
-              <input type="text" name="name" placeholder="The Rock"  
+              <label className="mb-1 block text-white">Your Name</label>
+              <input
+                type="text"
+                name="name"
+                placeholder="The Rock"
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 bg-white/20 border border-white/30 text-white rounded-xl placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                className="w-full rounded-xl border border-white/30 bg-white/20 px-4 py-2 text-white placeholder-gray-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              />
             </div>
             <div>
-              <label className="block text-white mb-1">Email Address</label>
-              <input type="email" name="email" placeholder="rock@example.com"
+              <label className="mb-1 block text-white">Email Address</label>
+              <input
+                type="email"
+                name="email"
+                placeholder="rock@example.com"
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 bg-white/20 border border-white/30 text-white rounded-xl placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                className="w-full rounded-xl border border-white/30 bg-white/20 px-4 py-2 text-white placeholder-gray-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              />
             </div>
             <div>
-              <label className="block text-white mb-1">Your Message</label>
-              <textarea rows="4" name="message" placeholder="Type your message..."
+              <label className="mb-1 block text-white">Your Message</label>
+              <textarea
+                rows="4"
+                name="message"
+                placeholder="Type your message..."
                 value={formData.message}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 bg-white/20 border border-white/30 text-white rounded-xl placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                className="w-full rounded-xl border border-white/30 bg-white/20 px-4 py-2 text-white placeholder-gray-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              ></textarea>
             </div>
-            <button type="submit" className="w-full bg-gradient-to-r from-red-500 cursor-pointer to-purple-500 text-white font-semibold py-2 rounded-xl hover:opacity-90 transition-all duration-300">
-              {isLoading ? <DotLoader color="#100c0d" size={20} /> : 'Send Message 🚀'}
+            <button
+              type="submit"
+              className="w-full cursor-pointer rounded-xl bg-gradient-to-r from-red-500 to-purple-500 py-2 font-semibold text-white transition-all duration-300 hover:opacity-90"
+            >
+              {isLoading ? (
+                <DotLoader color="#100c0d" size={20} />
+              ) : (
+                'Send Message 🚀'
+              )}
             </button>
           </form>
         </div>
