@@ -50,11 +50,24 @@ const Products = () => {
   const dynamicPage = Math.ceil(filteredData?.length / 8);
 
   return (
-    <div>
-      <div className="mx-auto mb-10 max-w-6xl px-4">
-        <MobileFilter
-          openFilter={openFilter}
-          setOpenFilter={setOpenFilter}
+    <div className="mx-auto mb-10 max-w-6xl px-4">
+      <MobileFilter
+        openFilter={openFilter}
+        setOpenFilter={setOpenFilter}
+        search={search}
+        setSearch={setSearch}
+        brand={brand}
+        setBrand={setBrand}
+        priceRange={priceRange}
+        setPriceRange={setPriceRange}
+        category={category}
+        setCategory={setCategory}
+        handleCategoryChange={handleCategoryChange}
+        handleBrandChange={handleBrandChange}
+      />
+
+      <div className="flex gap-8">
+        <FilterSection
           search={search}
           setSearch={setSearch}
           brand={brand}
@@ -66,55 +79,40 @@ const Products = () => {
           handleCategoryChange={handleCategoryChange}
           handleBrandChange={handleBrandChange}
         />
-
-        <div className="flex gap-8">
-          <FilterSection
-            search={search}
-            setSearch={setSearch}
-            brand={brand}
-            setBrand={setBrand}
-            priceRange={priceRange}
-            setPriceRange={setPriceRange}
-            category={category}
-            setCategory={setCategory}
-            handleCategoryChange={handleCategoryChange}
-            handleBrandChange={handleBrandChange}
-          />
-          {data?.length > 0 ? (
-            <>
-              <div className="flex w-full gap-8">
-                {filteredData?.length > 0 ? (
-                  <div className="flex flex-col items-center justify-center">
-                    <div className="mt-10 grid grid-cols-2 gap-2 md:grid-cols-3 md:gap-7 lg:grid-cols-4">
-                      {filteredData
-                        ?.slice(page * 8 - 8, page * 8)
-                        .map((product, index) => {
-                          return <ProductCard key={index} product={product} />;
-                        })}
-                    </div>
-                    <Pagination
-                      pageHandler={pageHandler}
-                      page={page}
-                      dynamicPage={dynamicPage}
-                    />
+        {data?.length > 0 ? (
+          <>
+            <div className="flex w-full gap-8">
+              {filteredData?.length > 0 ? (
+                <div className="flex flex-col items-center justify-center">
+                  <div className="mt-10 grid grid-cols-2 gap-2 md:grid-cols-3 md:gap-7 lg:grid-cols-4">
+                    {filteredData
+                      ?.slice(page * 8 - 8, page * 8)
+                      .map((product, index) => {
+                        return <ProductCard key={index} product={product} />;
+                      })}
                   </div>
-                ) : (
-                  <div className="mt-10 flex items-center justify-center md:h-[600px] md:w-[900px]">
-                    <Lottie animationData={notfound} classID="w-[500px]" />
-                  </div>
-                )}
-              </div>
-            </>
-          ) : (
-            <div className="flex w-full flex-col items-center justify-center">
-              <div className="mt-10 grid w-full grid-cols-2 gap-2 md:grid-cols-3 md:gap-7 lg:grid-cols-4">
-                {Array.from({ length: 8 }).map((_, index) => (
-                  <ProductCardSkeleton key={index} />
-                ))}
-              </div>
+                  <Pagination
+                    pageHandler={pageHandler}
+                    page={page}
+                    dynamicPage={dynamicPage}
+                  />
+                </div>
+              ) : (
+                <div className="mt-10 flex items-center justify-center md:h-[600px] md:w-[900px]">
+                  <Lottie animationData={notfound} classID="w-[500px]" />
+                </div>
+              )}
             </div>
-          )}
-        </div>
+          </>
+        ) : (
+          <div className="flex w-full flex-col items-center justify-center">
+            <div className="mt-10 grid w-full grid-cols-2 gap-2 md:grid-cols-3 md:gap-7 lg:grid-cols-4">
+              {Array.from({ length: 8 }).map((_, index) => (
+                <ProductCardSkeleton key={index} />
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
