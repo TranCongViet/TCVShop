@@ -10,7 +10,6 @@ export const DataProvider = ({ children }) => {
   const fetchAllProducts = async () => {
     try {
       const res = await axios.get('https://dummyjson.com/products?limit=194');
-      console.log('test', res.data);
       const productsData = res.data.products;
       setData(productsData);
     } catch (error) {
@@ -28,7 +27,6 @@ export const DataProvider = ({ children }) => {
 
   const categoryOnlyData = getUniqueCategory(data, 'category');
   const brandOnlyData = getUniqueCategory(data, 'brand');
-  console.log('Test brand only', brandOnlyData);
   return (
     <DataContext.Provider
       value={{

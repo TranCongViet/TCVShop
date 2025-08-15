@@ -31,7 +31,7 @@ const CategoryProduct = () => {
   return (
     <div>
       {searchData.length > 0 ? (
-        <div className="mx-auto mt-10 mb-10 max-w-6xl px-4">
+        <div className="mx-auto mt-10 mb-10 min-h-screen max-w-6xl px-4">
           <button
             onClick={() => navigate('/')}
             className="mb-5 flex cursor-pointer items-center gap-1 rounded-md bg-gray-800 px-3 py-1 text-white"
@@ -43,7 +43,7 @@ const CategoryProduct = () => {
           })}
         </div>
       ) : (
-        <div className="flex h-[400px] items-center justify-center">
+        <div className="flex h-screen items-center justify-center">
           <video muted autoPlay loop>
             <source src={Loading} type="video/webm" />
           </video>

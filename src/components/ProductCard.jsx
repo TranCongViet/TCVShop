@@ -4,12 +4,10 @@ import { useCart } from '../context/CartContext';
 
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
-  const { addToCart, cartItem } = useCart();
-
-  console.log(cartItem);
+  const { addToCart } = useCart();
 
   return (
-    <div className="relative h-max cursor-pointer rounded-2xl border border-gray-100 p-2 transition-all hover:scale-105 hover:shadow-2xl">
+    <div className="relative flex cursor-pointer flex-col justify-between rounded-2xl border border-gray-100 p-2 transition-all hover:scale-105 hover:shadow-2xl">
       <img
         src={Array.isArray(product.images) ? product.images[0] : product.images}
         alt=""

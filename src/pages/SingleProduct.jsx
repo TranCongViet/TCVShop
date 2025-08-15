@@ -17,7 +17,6 @@ const SingleProduct = () => {
       );
       const product = res.data;
       setSingleProduct(product);
-      console.log(product);
     } catch (error) {
       console.log(error);
     }

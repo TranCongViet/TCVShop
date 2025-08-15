@@ -114,7 +114,7 @@ const Carousel = () => {
                   <div className="my-20 flex h-[600px] flex-col items-center justify-center gap-10 px-4 md:my-0 md:flex-row">
                     <div className="space-y-3 md:space-y-6">
                       <h3 className="font-sans text-sm font-semibold text-red-500">
-                        Powering Your World with the Best in Electronics
+                        Powering Your World with the Best Products
                       </h3>
                       <h1 className="line-clamp-2 text-xl font-bold text-white uppercase md:line-clamp-3 md:w-[500px] md:text-4xl">
                         {item.title}
