@@ -9,9 +9,8 @@ export const DataProvider = ({ children }) => {
   // fetching all products from api
   const fetchAllProducts = async () => {
     try {
-      const res = await axios.get(
-        'https://fakestoreapi.in/api/products?limit=150'
-      );
+      const res = await axios.get('https://dummyjson.com/products?limit=150');
+      console.log('test', res.data);
       const productsData = res.data.products;
       setData(productsData);
     } catch (error) {
@@ -29,6 +28,7 @@ export const DataProvider = ({ children }) => {
 
   const categoryOnlyData = getUniqueCategory(data, 'category');
   const brandOnlyData = getUniqueCategory(data, 'brand');
+  console.log('Test brand only', brandOnlyData);
   return (
     <DataContext.Provider
       value={{

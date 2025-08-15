@@ -130,7 +130,11 @@ const Carousel = () => {
                     </div>
                     <div>
                       <img
-                        src={item.image}
+                        src={
+                          Array.isArray(item.images)
+                            ? item.images[0]
+                            : item.images
+                        }
                         alt={item.title}
                         className="w-[350px] rounded-full shadow-2xl shadow-red-400 transition-all hover:scale-105 md:w-[550px]"
                       />

@@ -37,23 +37,23 @@ const MobileFilter = ({
             className="w-full rounded-md border-2 border-gray-400 bg-white p-2"
           />
           {/* category only data */}
-          <h1 className="mt-5 text-xl font-semibold">Category</h1>
-          <div className="mt-3 flex flex-col gap-2">
+          <h1 className="mt-5 mb-3 text-xl font-semibold">Category</h1>
+          <select
+            name=""
+            id=""
+            className="w-full rounded-md border-2 border-gray-200 bg-white p-2"
+            value={category}
+            onChange={handleCategoryChange}
+          >
             {categoryOnlyData?.map((item, index) => {
               return (
-                <div key={index} className="flex gap-2">
-                  <input
-                    type="checkbox"
-                    name={item}
-                    checked={category === item}
-                    value={item}
-                    onChange={handleCategoryChange}
-                  />
-                  <button className="cursor-pointer uppercase">{item}</button>
-                </div>
+                <option key={index} value={item}>
+                  {item?.toUpperCase()}
+                </option>
               );
             })}
-          </div>
+          </select>
+
           {/* brand only data */}
           <h1 className="mt-5 mb-3 text-xl font-semibold">Brand</h1>
           <select
@@ -66,7 +66,7 @@ const MobileFilter = ({
             {brandOnlyData?.map((item, index) => {
               return (
                 <option key={index} value={item}>
-                  {item.toUpperCase()}
+                  {item?.toUpperCase()}
                 </option>
               );
             })}

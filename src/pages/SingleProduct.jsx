@@ -13,9 +13,9 @@ const SingleProduct = () => {
   const getSingleProduct = async () => {
     try {
       const res = await axios.get(
-        `https://fakestoreapi.in/api/products/${params.id}`
+        `https://dummyjson.com/products/${params.id}`
       );
-      const product = res.data.product;
+      const product = res.data;
       setSingleProduct(product);
       console.log(product);
     } catch (error) {
@@ -40,7 +40,11 @@ const SingleProduct = () => {
             {/* product image */}
             <div className="w-full">
               <img
-                src={SingleProduct.image}
+                src={
+                  Array.isArray(SingleProduct.images)
+                    ? SingleProduct.images[0]
+                    : SingleProduct.images
+                }
                 alt={SingleProduct.title}
                 className="w-full rounded-2xl object-cover"
               />

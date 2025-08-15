@@ -11,7 +11,7 @@ const ProductCard = ({ product }) => {
   return (
     <div className="relative h-max cursor-pointer rounded-2xl border border-gray-100 p-2 transition-all hover:scale-105 hover:shadow-2xl">
       <img
-        src={product.image}
+        src={Array.isArray(product.images) ? product.images[0] : product.images}
         alt=""
         className="aspect-square bg-gray-100"
         onClick={() => navigate(`/products/${product.id}`)}
