@@ -14,7 +14,7 @@ const CategoryProduct = () => {
   const getFilterData = async () => {
     try {
       const res = await axios.get(
-        `https://fakestoreapi.in/api/products/category?type=${category}`
+        `https://dummyjson.com/products/category/${category}`
       );
       const data = res.data.products;
       setSearchData(data);

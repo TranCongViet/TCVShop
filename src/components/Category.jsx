@@ -19,7 +19,7 @@ const Category = () => {
   return (
     <div className="bg-[#101829]">
       <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-4 px-4 py-7 md:justify-around">
-        {categoryOnlyData?.map((item, index) => {
+        {categoryOnlyData?.slice(0, 5).map((item, index) => {
           return (
             <div key={index}>
               <button

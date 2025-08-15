@@ -9,18 +9,18 @@ const About = () => {
         <p className="text-lg text-gray-700">
           Welcome to{' '}
           <span className="font-semibold text-red-600">TCV Shop</span>, your
-          one-stop destination for the latest and greatest in electronics. From
-          cutting-edge gadgets to must-have accessories, we’re here to power up
-          your tech life with premium products and unbeatable service.
+          one-stop destination for all your shopping needs. From home
+          essentials, fashion, and electronics to entertainment and everyday
+          convenience products, we’re here to provide a seamless, reliable, and
+          enjoyable shopping experience.
         </p>
 
         <div className="space-y-6">
           <h2 className="text-2xl font-semibold text-red-600">Our Mission</h2>
           <p className="text-base text-gray-700">
-            At TCV, our mission is to make innovative technology accessible to
-            everyone. We’re passionate about connecting people with the tools
-            and tech they need to thrive in a digital world — all at competitive
-            prices and delivered with speed and care.
+            At TCV, our mission is to bring essential and exciting products to
+            everyone, making daily life easier and more convenient — all at
+            competitive prices and delivered with care.
           </p>
         </div>
 
@@ -29,19 +29,20 @@ const About = () => {
             Why Choose TCV?
           </h2>
           <ul className="list-disc space-y-2 pl-6 text-gray-700">
-            <li>Top-quality electronic products from trusted brands</li>
-            <li>Lightning-fast and secure shipping</li>
-            <li>Reliable customer support, always ready to help</li>
-            <li>Easy returns and hassle-free shopping experience</li>
+            <li>Wide range of high-quality products from trusted brands</li>
+            <li>Fast and secure shipping </li>
+            <li>Dedicated customer support, always ready to help </li>
+            <li>Easy shopping experience with hassle-free returns </li>
           </ul>
         </div>
 
         <div className="space-y-6">
           <h2 className="text-2xl font-semibold text-red-600">Our Vision</h2>
           <p className="text-base text-gray-700">
-            We envision a future where technology elevates everyday life. At
-            TCV, we’re committed to staying ahead of the curve, offering
-            cutting-edge solutions that are both practical and affordable.
+            We envision a future where shopping is simple, convenient, and
+            enjoyable for everyone. TCV is committed to offering new and diverse
+            products that meet a wide range of needs while providing the best
+            value for our customers.
           </p>
         </div>
 
@@ -50,8 +51,8 @@ const About = () => {
             Join the TCV Family
           </h3>
           <p className="mb-4 text-gray-700">
-            Whether you’re a tech enthusiast, a professional, or just looking
-            for something cool and functional — TCV has something for everyone.
+            Whether you’re looking for home essentials, fashion, electronics, or
+            unique items — TCV has something for everyone.
           </p>
           <Link to={'/products'}>
             <button className="cursor-pointer rounded-xl bg-red-600 px-6 py-2 text-white transition duration-300 hover:bg-red-700">

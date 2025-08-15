@@ -8,7 +8,9 @@ const ProductListView = ({ product }) => {
     <div className="mt-2 space-y-4 rounded-md">
       <div className="flex items-center gap-7 rounded-md bg-gray-100 p-2">
         <img
-          src={product.image}
+          src={
+            Array.isArray(product.images) ? product.images[0] : product.images
+          }
           alt={product.title}
           className="h-25 w-25 cursor-pointer rounded-md md:h-60 md:w-60"
           onClick={() => navigate(`/products/${product.id}`)}

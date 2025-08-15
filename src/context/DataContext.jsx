@@ -9,7 +9,7 @@ export const DataProvider = ({ children }) => {
   // fetching all products from api
   const fetchAllProducts = async () => {
     try {
-      const res = await axios.get('https://dummyjson.com/products?limit=150');
+      const res = await axios.get('https://dummyjson.com/products?limit=194');
       console.log('test', res.data);
       const productsData = res.data.products;
       setData(productsData);
