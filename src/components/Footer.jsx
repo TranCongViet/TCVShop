@@ -4,6 +4,7 @@ import {
   FaPinterest,
   FaTwitterSquare,
 } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -21,10 +22,15 @@ const Footer = () => {
         <div className="mb-6 md:mb-0">
           <h3 className="text-center text-xl font-semibold">Follow me</h3>
           <div className="mt-2 flex justify-center space-x-4">
-            <FaFacebook />
+            <Link
+              to="https://www.facebook.com/tcv.hcmus"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaFacebook />
+            </Link>
             <FaInstagram />
             <FaTwitterSquare />
-            <FaPinterest />
           </div>
         </div>
       </div>

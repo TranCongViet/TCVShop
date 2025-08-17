@@ -5,7 +5,7 @@ const Breadcrums = ({ title }) => {
   const navigate = useNavigate();
   return (
     <div className="mx-auto my-10 max-w-6xl">
-      <h1 className="text-xl font-semibold text-gray-700">
+      <h1 className="text-xl font-semibold text-gray-800">
         <span className="cursor-pointer" onClick={() => navigate('/')}>
           Home
         </span>{' '}

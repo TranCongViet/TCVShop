@@ -6,12 +6,28 @@ import { MdDeliveryDining } from 'react-icons/md';
 import { GiShoppingBag } from 'react-icons/gi';
 import { useNavigate } from 'react-router-dom';
 import emptyCart from '../assets/empty-cart.png';
+import { toast } from 'react-toastify';
 
 const Cart = ({ location, getLocation }) => {
   const { cartItem, updateQuantity, deleteItem, user, isSignedIn, totalPrice } =
     useCart();
   const navigate = useNavigate();
-
+  const handleCheckout = () => {
+    if (!isSignedIn) {
+      navigate('/login');
+    } else {
+      // Proceed with checkout
+      toast.success('This feature is coming soon.');
+    }
+  };
+  const handleSubmit = () => {
+    if (!isSignedIn) {
+      navigate('/login');
+    } else {
+      // Proceed with submit
+      toast.success('This feature is coming soon.');
+    }
+  };
   // Redirect to sign in if not authenticated
   if (!isSignedIn) {
     return (
@@ -46,7 +62,11 @@ const Cart = ({ location, getLocation }) => {
                   >
                     <div className="flex items-center gap-4">
                       <img
-                        src={item.image}
+                        src={
+                          Array.isArray(item.iamges)
+                            ? item.images[0]
+                            : item.images
+                        }
                         alt={item.title}
                         className="h-20 w-20 rounded-md"
                       />
@@ -150,7 +170,10 @@ const Cart = ({ location, getLocation }) => {
                     />
                   </div>
                 </div>
-                <button className="mt-3 cursor-pointer rounded-md bg-red-500 px-3 py-1 text-white">
+                <button
+                  onClick={handleSubmit}
+                  className="mt-3 cursor-pointer rounded-md bg-red-500 px-3 py-1 text-white"
+                >
                   Submit
                 </button>
                 <div className="flex w-full items-center justify-center text-gray-700">
@@ -218,7 +241,10 @@ const Cart = ({ location, getLocation }) => {
                     </button>
                   </div>
                 </div>
-                <button className="mt-3 w-full cursor-pointer rounded-md bg-red-500 px-3 py-2 text-white">
+                <button
+                  onClick={handleCheckout}
+                  className="mt-3 w-full cursor-pointer rounded-md bg-red-500 px-3 py-2 text-white"
+                >
                   Proceed to Checkout
                 </button>
               </div>

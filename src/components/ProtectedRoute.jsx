@@ -2,9 +2,14 @@ import { useUser } from '@clerk/clerk-react';
 import { Navigate } from 'react-router-dom';
 
 const ProtectedRoute = ({ children }) => {
-  const { user } = useUser();
+  const { isSignedIn, isLoaded } = useUser();
 
-  return <div>{user ? children : <Navigate to="/" />}</div>;
+  if (!isLoaded) {
+    // Chờ dữ liệu user load xong, có thể show spinner
+    return <div>Loading...</div>;
+  }
+
+  return <div>{isSignedIn ? children : <Navigate to="/" />}</div>;
 };
 
 export default ProtectedRoute;

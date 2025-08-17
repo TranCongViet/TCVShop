@@ -2,7 +2,7 @@ import React from 'react';
 
 const ProductDetailSkeleton = () => {
   return (
-    <div className="min-h-screen px-4 pb-4 md:px-0">
+    <div className="min-h-screen rounded-2xl bg-white px-4 pb-4 shadow-lg md:px-0">
       <div className="mx-auto my-10 max-w-6xl">
         <div className="h-6 w-3/4 animate-pulse rounded bg-gray-300"></div>
       </div>
