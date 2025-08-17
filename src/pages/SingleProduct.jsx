@@ -7,10 +7,18 @@ import { FaStar } from 'react-icons/fa6';
 import { useCart } from '../context/CartContext';
 import { MdOutlineLocalShipping } from 'react-icons/md';
 import ProductDetailSkeleton from '../components/skeleton/ProductDetailSkeleton';
+import ReviewCard from '../components/ReviewCard';
+import { useUser } from '@clerk/clerk-react';
+import { IoMdSend } from 'react-icons/io';
+
 const SingleProduct = () => {
   const params = useParams();
   const [SingleProduct, setSingleProduct] = useState('');
   const { addToCart } = useCart();
+  const { isSignedIn, isLoaded } = useUser();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const getSingleProduct = async () => {
     try {
@@ -160,6 +168,32 @@ const SingleProduct = () => {
                 {SingleProduct.dimensions.depth} cm
               </div>
             </div>
+          </div>
+          <div className="mx-auto mt-5 max-w-6xl rounded-2xl bg-white p-5 shadow-lg">
+            <h2 className="w-full bg-gray-100 px-5 py-2 text-xl font-bold">
+              Customer Reviews
+            </h2>
+            {isLoaded && (
+              <h3 className={`py-5 ${isSignedIn ? 'hidden' : 'block'}`}>
+                Please <span className="text-red-700">log in</span> to share
+                your thoughts!
+              </h3>
+            )}
+            <div className="rounded-xl border border-gray-300 bg-gray-100 p-5">
+              <textarea
+                placeholder="Write your comment..."
+                className="w-full rounded-md border border-gray-300 bg-white p-5"
+              />
+              <div className="mt-3 flex justify-end">
+                <div className="flex cursor-pointer items-center space-x-2 rounded-md px-4 py-2 text-xl text-red-700 hover:text-red-500">
+                  <IoMdSend></IoMdSend> <span>Send</span>
+                </div>
+              </div>
+            </div>
+
+            {SingleProduct.reviews?.map((review, index) => (
+              <ReviewCard key={index} review={review} />
+            ))}
           </div>
         </div>
       ) : (

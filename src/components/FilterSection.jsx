@@ -57,7 +57,6 @@ const FilterSection = ({
           );
         })}
       </select>
-
       {/* price range  */}
       <h1 className="mt-5 mb-3 text-xl font-semibold">Price Range</h1>
       <div className="flex flex-col gap-2">

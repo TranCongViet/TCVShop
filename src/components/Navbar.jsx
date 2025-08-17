@@ -14,7 +14,7 @@ import ResponsiveMenu from './ResponsiveMenu';
 const Navbar = () => {
   const { cartItem } = useCart();
   const [openNav, setOpenNav] = useState(false);
-  const { user, isSignedIn } = useUser();
+  const { user, isSignedIn, isLoaded } = useUser();
   return (
     <div className="bg-white px-4 py-3 shadow-2xl md:px-0">
       <div className="mx-auto flex max-w-6xl items-center justify-between">
@@ -66,15 +66,17 @@ const Navbar = () => {
               )}
             </NavLink>
           </ul>
-          <Link
-            to={'/cart'}
-            className={`relative ${isSignedIn ? 'block' : 'hidden'}`}
-          >
-            <IoCartOutline className="h-7 w-7" />
-            <span className="absolute -top-3 -right-3 rounded-full bg-red-500 px-2 text-white">
-              {cartItem.length}
-            </span>
-          </Link>
+          {isLoaded && (
+            <Link
+              to={'/cart'}
+              className={`relative ${isSignedIn ? 'block' : 'hidden'}`}
+            >
+              <IoCartOutline className="h-7 w-7" />
+              <span className="absolute -top-3 -right-3 rounded-full bg-red-500 px-2 text-white">
+                {cartItem.length}
+              </span>
+            </Link>
+          )}
 
           <div className="hidden md:block">
             <SignedOut>
